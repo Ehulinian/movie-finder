@@ -13,10 +13,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { Movie } from '../types/Movie'
-
 const props = defineProps<{
-  movie: Movie
+  movie: {
+    imdbID: string
+    Title: string
+    Poster: string
+    Director: string
+    Year: number | null
+  }
 }>()
 </script>
 
@@ -26,12 +30,10 @@ const props = defineProps<{
   padding: 10px;
   margin-bottom: 20px;
 }
-
 .movie-card img {
   max-width: 100%;
   height: auto;
 }
-
 .movie-title {
   display: block;
   margin-top: 10px;
@@ -41,7 +43,6 @@ const props = defineProps<{
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 .movie-title:hover {
   color: #1e90ff;
 }
