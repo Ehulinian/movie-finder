@@ -1,26 +1,19 @@
 <template>
   <div class="movie-card">
-    <img :src="props.movie.Poster" alt="Movie Poster" />
-    <router-link
-      class="movie-title"
-      :to="{ name: 'movie-detail', params: { id: props.movie.imdbID } }"
-    >
-      {{ props.movie.Title }}
+    <img :src="movie?.Poster" alt="Movie Poster" />
+    <router-link class="movie-title" :to="{ name: 'movie-detail', params: { id: movie?.imdbID } }">
+      {{ movie?.Title }}
     </router-link>
-    <p>Director: {{ props.movie.Director }}</p>
-    <p>Year: {{ props.movie.Year }}</p>
+    <p>Director: {{ movie?.Director }}</p>
+    <p>Year: {{ movie?.Year }}</p>
   </div>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-  movie: {
-    imdbID: string
-    Title: string
-    Poster: string
-    Director: string
-    Year: number | null
-  }
+import type { Movie } from '../types/Movie'
+
+defineProps<{
+  movie: Movie | null
 }>()
 </script>
 
