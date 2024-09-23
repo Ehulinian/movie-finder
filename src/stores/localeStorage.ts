@@ -11,7 +11,7 @@ export const useLocalMoviesStore = defineStore('localMovies', {
     async addMovie(movie: NewMovie) {
       this.loading = true
       try {
-        const newMovie: Movie = {
+        const newMovie = {
           imdbID: generateUniqueId(),
           ...movie
         }
