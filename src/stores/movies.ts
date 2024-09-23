@@ -12,7 +12,7 @@ export const useMoviesStore = defineStore('movies', {
     async fetchMovies(title: string) {
       this.loading = true
       try {
-        const response = await axios.get(`http://www.omdbapi.com/?s=${title}&apikey=c0acbbe7`)
+        const response = await axios.get(`https://www.omdbapi.com/?s=${title}&apikey=c0acbbe7`)
         this.movies = response.data.Search || []
       } catch (error) {
         console.error('Error fetching movies:', error)
@@ -26,7 +26,7 @@ export const useMoviesStore = defineStore('movies', {
     async fetchMovieById(id: string) {
       this.loading = true
       try {
-        const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=c0acbbe7`)
+        const response = await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=c0acbbe7`)
         this.selectedMovie = response.data
       } catch (error) {
         console.error('Error fetching movie:', error)
