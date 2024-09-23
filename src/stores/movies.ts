@@ -16,6 +16,7 @@ export const useMoviesStore = defineStore('movies', {
         this.movies = response.data.Search || []
       } catch (error) {
         console.error('Error fetching movies:', error)
+        this.loading = false
       } finally {
         setTimeout(() => {
           this.loading = false
@@ -30,6 +31,7 @@ export const useMoviesStore = defineStore('movies', {
         this.selectedMovie = response.data
       } catch (error) {
         console.error('Error fetching movie:', error)
+        this.loading = false
       } finally {
         setTimeout(() => {
           this.loading = false
